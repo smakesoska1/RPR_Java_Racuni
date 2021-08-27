@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -81,7 +82,16 @@ public class Racun {
        return proizvodi.keySet().stream().map(proizvod -> proizvod.getCijena()*proizvodi.get(proizvod)).mapToDouble(Double::doubleValue).sum();
     }
     @Override
-    public String toString(){
-
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy. HH:mm");
+        StringBuilder rezultat = new StringBuilder("Račun #" + id + " (" + datumIzdavanja.format(formatter) + "):\n");
+        for (Map.Entry<Proizvod, Integer> e: proizvodi.entrySet()){
+            rezultat.append(e.getKey().getNaziv()).append(", ")
+                    .append(e.getValue()).append(" kom, ")
+                    .append(String.format("%.2f",e.getKey().getCijena() * e.getValue())).append(" KM\n");
+        }
+        rezultat.append("Ukupno: ").append(String.format("%.2f",dajUkupnuCijenu())).append(" KM");
+        return rezultat.toString();
     }
+    
 }
