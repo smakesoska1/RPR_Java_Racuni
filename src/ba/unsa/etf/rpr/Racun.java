@@ -78,8 +78,10 @@ public class Racun {
     }
 
     public double dajUkupnuCijenu() {
-       double broj=3;
-       return broj;
+       return proizvodi.keySet().stream().map(proizvod -> proizvod.getCijena()*proizvodi.get(proizvod)).mapToDouble(Double::doubleValue).sum();
+    }
+    @Override
+    public String toString(){
 
     }
 }
