@@ -7,6 +7,10 @@ public class Proizvod {
     private String naziv;
     private double cijena;
 
+    public Proizvod(){
+
+    }
+
     public Proizvod(String barKod, String naziv, double cijena) throws NeispravanFormatException {
         provjeriBarKod(barKod); //moramo zbog provjere bar koda da ima 13 cifara
         this.barKod = barKod;

@@ -1,6 +1,5 @@
-/*ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr;
 
-import ba.unsa.etf.rpr.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -388,4 +387,4 @@ class KasaTest {
         assertEquals(rezultat, kasa.presjekDana(datum.plusDays(1).toLocalDate()));
         assertEquals(rezultat2, kasa.presjekDana(datum.toLocalDate()));
     }
-}*/
+}

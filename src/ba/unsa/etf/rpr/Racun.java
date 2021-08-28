@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Racun {
+public class Racun implements Comparable<Racun> {
     private final Long id;
     private final LocalDateTime datumIzdavanja;
     private Map<Proizvod,Integer> proizvodi=new HashMap<>();
@@ -93,5 +93,10 @@ public class Racun {
         rezultat.append("Ukupno: ").append(String.format("%.2f",dajUkupnuCijenu())).append(" KM");
         return rezultat.toString();
     }
-    
+    @Override
+    public int compareTo(Racun o){
+       return datumIzdavanja.compareTo(o.datumIzdavanja);
+    }
+
+
 }
